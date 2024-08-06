@@ -6,7 +6,7 @@ output:
     social: menu
 runtime: shiny
 resource_files:
-
+- www
 ---
 
 ```{r, eval = FALSE}
@@ -31,6 +31,9 @@ library(ggridges)
 library(sf)
 library(magick)
 library(viridis)
+library(shiny)
+library(markdown)
+
 #setwd(here::here('app/')) # need this to run locally 
 source('functions/process_data.R')
 # Pulling in rasters and shapefile data
@@ -727,7 +730,6 @@ About
 # library(magick)
 # g = magick::image_read('www/SquidSquadV1.png')
 # plot(g)
-
 includeMarkdown("data.md")
 
 ```
