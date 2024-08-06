@@ -1,0 +1,12 @@
+name: run_indicator_dash
+title: run_indicator_dash
+username: sarah.salois
+account: sarah.salois
+server: connect.fisheries.noaa.gov
+hostUrl: https://connect.fisheries.noaa.gov/__api__
+appId: 343
+bundleId:
+url: https://connect.fisheries.noaa.gov/content/156f537e-2509-478f-94c3-38584d02e86c/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

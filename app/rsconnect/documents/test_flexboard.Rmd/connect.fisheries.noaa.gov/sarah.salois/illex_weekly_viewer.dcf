@@ -1,0 +1,13 @@
+name: illex_weekly_viewer
+title: Illex Weekly Viewer
+username: sarah.salois
+account: sarah.salois
+server: connect.fisheries.noaa.gov
+hostUrl: https://connect.fisheries.noaa.gov/__api__
+appId: 198
+bundleId: 928
+url: https://connect.fisheries.noaa.gov/content/bbd89359-6376-42cf-8d3d-6300f4c5b454/
+when: 1693524238.60243
+lastSyncTime: 1693524238.60244
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,0 +1,14 @@
+name: bug_check
+title: bug_check
+username: sarah.salois
+account: sarah.salois
+server: test-connect.fisheries.noaa.gov
+hostUrl: https://test-connect.fisheries.noaa.gov/__api__
+appId: 170
+bundleId: 738
+url: https://test-connect.fisheries.noaa.gov/content/c5051340-018c-457a-a288-365bab829afc/
+when: 1691174903.30867
+lastSyncTime: 1691174903.30868
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: jc_2022_wk_35.png

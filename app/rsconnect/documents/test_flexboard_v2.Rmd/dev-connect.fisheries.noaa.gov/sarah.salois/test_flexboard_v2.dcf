@@ -1,0 +1,12 @@
+name: test_flexboard_v2
+title: test_flexboard_v2
+username: sarah.salois
+account: sarah.salois
+server: dev-connect.fisheries.noaa.gov
+hostUrl: https://dev-connect.fisheries.noaa.gov/__api__
+appId: 271
+bundleId: 1233
+url: https://dev-connect.fisheries.noaa.gov/content/5f5ce519-0208-4fef-8865-35a6198ce878/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
