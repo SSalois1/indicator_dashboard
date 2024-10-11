@@ -16,10 +16,10 @@ sid <- 'nefscdb1'
 servicename <- 'NEFSC_USERS'
 
 #Putting all of that together
-connect.string <- paste(
-  "(DESCRIPTION=",
-  "(ADDRESS=(PROTOCOL=tcp)(HOST=", host, ")(PORT=", port, "))",
-  "(CONNECT_DATA=(SID=", sid, ")))", sep = "")
+# connect.string <- paste(
+#   "(DESCRIPTION=",
+#   "(ADDRESS=(PROTOCOL=tcp)(HOST=", host, ")(PORT=", port, "))",
+#   "(CONNECT_DATA=(SID=", sid, ")))", sep = "")
 connect.string <- paste(
   "(DESCRIPTION=",
   "(ADDRESS=(PROTOCOL=tcp)(HOST=", host, ")(PORT=", port, "))",
@@ -29,15 +29,3 @@ connect.string <- paste(
 con.db1 <- dbConnect(drv, username = usr, password = pswd,
                  dbname = connect.string)
 
-#Setting up a connection to nova
-drv <- dbDriver("Oracle")
-host <- 'sole.nefsc.noaa.gov'
-port <- 1526
-sid <- 'sole'
-connect.string <- paste(
-  "(DESCRIPTION=",
-  "(ADDRESS=(PROTOCOL=tcp)(HOST=", host, ")(PORT=", port, "))",
-  "(CONNECT_DATA=(SID=", sid, ")))", sep = "")
-
-con.sole <- dbConnect(drv, username = usr, password = pswd,
-                      dbname = connect.string)

@@ -1,4 +1,5 @@
 # Making rasters for shiny_indicators app 
+# ----- MOST RECENT UPDATE, PULLED DATA FROM SERVER 10-11-2024, from OCT 3---#
 #library(raster)
 library(RColorBrewer)
 library(ncdf4)
@@ -6,7 +7,7 @@ library(wesanderson)
 library(terra)
 library(dplyr)
 setwd(here::here('app'))
-source('func_convertdateNcdf2R.R')
+source(here::here('functions/func_convertdateNcdf2R.R'))
 # Color Palette
 # Continuous palette for displaying smoother images
 cols = rev(brewer.pal(11,'RdYlBu'))
@@ -21,7 +22,7 @@ files <- list.files(path = path, pattern = glob2rx('WW_*.nc'),
                     full.names = TRUE)
 
 ## -- Saving -- ## 
-i= 9 # 8
+i= 13 # 8
 ## SST STAT
 # Stat
 nc <- nc_open(files[i])  # Open files # 3 2022:stats, 4 2022:anom 
@@ -43,16 +44,21 @@ r = terra::flip(t(terra::rast(sst)), direction='vertical')
 names(r) <- ptime 
 # save time component in spatraster object
 terra::time(r) <- names(r) %>%  lubridate::ymd() %>% as.Date() 
+
+ext(r) <- c(xmn = min(lon), xmx = max(lon), # set extent
+            ymn = min(lat), ymx = max(lat))
+crs(r)  <- 'epsg:4326' # set a projection, WGS 84 has EPSG code 4326
+
 # Save your raster as a geotif: 
 # (change the start/stop values based on the location of the date in your filename)
 terra::writeRaster(r, filename = paste0('sst_', 
                                         substr(files[i],
-                                               start = 78, stop = 81), '.tif'))
+                                               start = 81, stop = 84), '.tif'))
 
 nc_close(nc)
 rm(nc)
 ## SST ANOM
-i = 17
+i = 16
 nc <- nc_open(files[i])  # Open files
 sst <- ncvar_get(nc, attributes(nc$var)$names[1]) # "SST_MEAN"
 
@@ -69,11 +75,15 @@ r = terra::flip(t(terra::rast(sst)), direction='vertical')
 names(r) <- ptime 
 # save time component in spatraster object
 terra::time(r) <- names(r) %>%  lubridate::ymd() %>% as.Date() 
+
+ext(r) <- c(xmn = min(lon), xmx = max(lon), # set extent
+            ymn = min(lat), ymx = max(lat))
+crs(r)  <- 'epsg:4326' # set a projection, WGS 84 has EPSG code 4326
 nc_close(nc)
 rm(nc)
 terra::writeRaster(r, filename = paste0('sst_anom_', 
                                         substr(files[i],
-                                               start = 78, stop = 81), '.tif'))
+                                               start = 81, stop = 84), '.tif'))
 
 ## CHL 
 i = 14
@@ -94,11 +104,15 @@ r = terra::flip(t(terra::rast(chl)), direction='vertical')
 names(r) <- ptime 
 # save time component in spatraster object
 terra::time(r) <- names(r) %>%  lubridate::ymd() %>% as.Date() 
+
+ext(r) <- c(xmn = min(lon), xmx = max(lon), # set extent
+            ymn = min(lat), ymx = max(lat))
+crs(r)  <- 'epsg:4326' # set a projection, WGS 84 has EPSG code 4326
 nc_close(nc)
 rm(nc)
 terra::writeRaster(r, filename = paste0('chl_', 
                                         substr(files[i],
-                                               start = 78, stop = 81), '.tif'))
+                                               start = 81, stop = 84), '.tif'))
 
 
 
@@ -121,6 +135,10 @@ r = terra::flip(t(terra::rast(chl)), direction='vertical')
 names(r) <- ptime 
 # save time component in spatraster object
 terra::time(r) <- names(r) %>%  lubridate::ymd() %>% as.Date() 
+
+ext(r) <- c(xmn = min(lon), xmx = max(lon), # set extent
+            ymn = min(lat), ymx = max(lat))
+crs(r)  <- 'epsg:4326' # set a projection, WGS 84 has EPSG code 4326
 nc_close(nc)
 rm(nc)
 terra::writeRaster(r, filename = paste0('chl_anom_', 
