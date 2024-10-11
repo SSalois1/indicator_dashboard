@@ -112,11 +112,11 @@ sal <- raster::brick('tifs/b_ww_sal_222m_20.tif')
 sf.df <- read.csv('data/illex_pull_plot_data_for_sarah_s.csv') # need to create function for this
 
 # -- Read in the ILXSM data 
-ml_wt <- process_bsm_data("data/ilxsm/ILXSM_EntirePull_07-11-2024.csv")
+ml_wt <- process_bsm_data("data/ilxsm/ILXSM_EntirePull_10-09-2024.csv")
 
 # -- Read in SQUIBS data
-df <- read.csv('data/squibs/2024-07-01_SQUIBS_Pull.csv')
-
+# df <- read.csv('data/squibs/squibs_8_8_24.csv')
+df <- read.csv('data/squibs/2024-10-04_weekly_SQUIBS_pull.csv')
 # -- Set up color palettes
 cols = rev(RColorBrewer::brewer.pal(11,'RdYlBu'))
 pal <- colorRampPalette(cols)(30)
